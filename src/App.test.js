@@ -10,5 +10,5 @@ test("renders learn react link", () => {
 test("should render the application title", () => {
   render(<App />);
   const appTitle = screen.getByText(/react application/i);
-  expect(appTitle.textContent).toBe("React Application");
+  expect(appTitle.textContent).toBe("React Application Testing");
 });
