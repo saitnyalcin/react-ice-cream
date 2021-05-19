@@ -1,21 +1,27 @@
-import logo from "./logo.svg";
+import { useState } from "react";
 import "./App.css";
 
 function App() {
+  const [buttonState, setbuttonState] = useState("red");
+  const [disable, setDisable] = useState(false);
+  const colorButton = buttonState === "red" ? "blue" : "red";
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>React Application Testing</p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <button
+        style={{ backgroundColor: buttonState }}
+        onClick={() => setbuttonState(colorButton)}
+        disabled={disable}
+      >
+        Change to {colorButton}
+      </button>
+      <input
+        type="checkbox"
+        defaultChecked={disable}
+        name="Please check it"
+        id="newCheckBox"
+        aria-checked={disable}
+        onClick={(e) => setDisable(e.target.checked)}
+      />
     </div>
   );
 }
