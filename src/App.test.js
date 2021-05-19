@@ -58,3 +58,15 @@ test("should disables button @ 1st click and enables @ 2nd click", () => {
   fireEvent.click(checkbox);
   expect(button).toBeEnabled();
 });
+
+test("should gray out the button when it is red", () => {
+  render(<App />);
+  const button = screen.getByRole("button", { name: "Change to blue" });
+  const checkbox = screen.getByRole("checkbox", { name: "Disable button" });
+
+  fireEvent.click(checkbox);
+  expect(button).toHaveStyle({ backgroundColor: "gray" });
+
+  fireEvent.click(checkbox);
+  expect(button).toHaveStyle({ backgroundColor: "red" });
+});
